@@ -29,34 +29,34 @@ public class Model {
         int counter;
         int temp;
         int temp2;
-        int transpositions=0;
-        int max=size;
+        int transpositions;
         int k;
         int l;
         for (int i = 0; i <size/2 ; i++) {
             for (int j = i; j <size-i-1; j++) {
                 temp=matrix[i][j];
+                matrix[i][j]=matrix[size-j-1][i];
                 k=i;
                 l=j;
                 transpositions=0;
-                while (transpositions != 4) {
+                while (transpositions != 3) {
                     transpositions++;
                     counter = 1;
-                    while(counter!=size-i){
+                    while(counter!=size-2*i){
 
-                        while(l<size-2*i-1 && k==i  && counter!=size-i) {
+                        while(l<size-i-1 && k==i  && counter!=size-2*i) {
                             l++;
                             counter++;
                         }
-                        while(k<size-2*i-1 &&  counter!=size-i) {
+                        while(k<size-i-1 &&  counter!=size-2*i) {
                             k++;
                             counter++;
                         }
-                        while(l>i && counter!=size-i) {
+                        while(l>i && counter!=size-2*i) {
                             l--;
                             counter++;
                         }
-                        while(k>i && counter!=size-i) {
+                        while(k>i && counter!=size-2*i) {
                             k--;
                             counter++;
                         }
