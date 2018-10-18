@@ -14,7 +14,7 @@ public class Enumaration extends Enum {
     }
     public static Enumaration valueOf(String name){
         for (Enumaration value: values()) {
-            if(name==value.name()){
+            if(name.equals(value.name())){
                 return value;
             }
         }

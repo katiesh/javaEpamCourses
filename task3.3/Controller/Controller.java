@@ -18,7 +18,7 @@ public class Controller {
         while(true) {
             inputStr = InputUtility.inputStringWithScanner(view, "Enter season to find out weather and how many days has this season" +
                     "\n Enter EXIT to exit");
-            model.valueOf(inputStr);
+            view.printEnum(model.valueOf(inputStr));
             if (inputStr.equals(model.WINTER.name())) {
                 view.printMessage("It is cold");
             } else if (inputStr.equals(model.SPRING.name())) {
