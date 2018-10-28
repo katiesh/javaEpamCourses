@@ -10,19 +10,17 @@ import epam.java.services.search.SearchSweets;
 import java.util.Collections;
 
 public class SortSweets {
-    protected SearchSweets searchSweets;
     protected NewYearPresent model;
 
-    public SortSweets(SearchSweets searchSweets, NewYearPresent model) {
+    public SortSweets(NewYearPresent model) {
         this.model = model;
-        this.searchSweets = searchSweets;
     }
 
     public SortSweets() {
     }
 
     public void sortByWeight(){
-        Collections.sort(searchSweets.getFilteredPresent(), new SweetsWeightComparator());
+        Collections.sort(model.getPresent(), new SweetsWeightComparator());
     }
 
     public void sortBySugarContent(){

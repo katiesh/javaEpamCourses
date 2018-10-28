@@ -25,7 +25,7 @@ public class Controller {
     public void run(){
         model.setPresent(DataSource.getSweets());
         searchSweets = new SearchSweets(model);
-        sortSweets = new SortSweets( searchSweets, model);
+        sortSweets = new SortSweets(model);
         String searchedField;
         double searchedValueFrom;
         double searchedValueTo;
