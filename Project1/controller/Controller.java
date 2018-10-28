@@ -25,9 +25,6 @@ public class Controller {
     public void run(){
         model.setPresent(DataSource.getSweets());
         searchSweets = new SearchSweets(model);
-        //searchCandies = new SearchCandies(model);
-        //searchChocolate = new SearchChocolate(model);
-        //searchCookies = new SearchCookies(model);
         sortSweets = new SortSweets( searchSweets, model);
         String searchedField;
         double searchedValueFrom;
