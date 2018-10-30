@@ -1,6 +1,6 @@
-package epam.java.data;
+package main.java.epam.data;
 
-import epam.java.model.entity.Book;
+import main.java.epam.model.entity.Book;
 public class DataSource {
     public static Book[] getBooks(){
         return new Book[] {

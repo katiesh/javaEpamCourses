@@ -1,6 +1,6 @@
-package epam.java;
+package main.java.epam;
 
-import epam.java.controller.Controller;
+import main.java.epam.controller.Controller;
 
 public class Main {
 

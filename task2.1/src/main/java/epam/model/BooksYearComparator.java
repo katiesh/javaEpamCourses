@@ -1,6 +1,6 @@
-package epam.java.model;
+package main.java.epam.model;
 
-import epam.java.model.entity.Book;
+import main.java.epam.model.entity.Book;
 
 import java.util.Comparator;
 

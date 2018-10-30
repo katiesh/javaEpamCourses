@@ -1,13 +1,10 @@
-package epam.java.controller;
+package main.java.epam.controller;
 
-import epam.java.InputUtility;
-import epam.java.data.DataSource;
-import epam.java.model.Books;
-import epam.java.model.BooksPublisherComparator;
-import epam.java.model.entity.Book;
-import epam.java.view.BooksView;
-
-import java.util.Arrays;
+import main.java.epam.InputUtility;
+import main.java.epam.data.DataSource;
+import main.java.epam.model.Books;
+import main.java.epam.model.entity.Book;
+import main.java.epam.view.BooksView;
 
 public class Controller {
     private Books  model= new Books();

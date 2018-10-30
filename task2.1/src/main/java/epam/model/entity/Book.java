@@ -1,6 +1,4 @@
-package epam.java.model.entity;
-
-import java.util.Objects;
+package main.java.epam.model.entity;
 
 public class Book {
     private String name;

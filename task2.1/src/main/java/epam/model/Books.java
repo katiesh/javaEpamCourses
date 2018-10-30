@@ -1,8 +1,7 @@
-package epam.java.model;
+package main.java.epam.model;
 
-import epam.java.model.entity.Book;
+import main.java.epam.model.entity.Book;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Books {
@@ -39,40 +38,49 @@ public class Books {
     }
 
     public void sortByPublisher(){
-        Arrays.sort(books, new BooksPublisherComparator());
+        Arrays.sort(books, new main.java.epam.model.BooksPublisherComparator());
     }
 
     public Book[] getAfterYear(int year){
-        Arrays.sort(books,new BooksYearComparator());
+        Arrays.sort(books,new main.java.epam.model.BooksYearComparator());
         System.out.println(indexAfterYearSearch(year));
-        return Arrays.copyOfRange(books,indexAfterYearSearch(year),books.length-1);
+        return Arrays.copyOfRange(books,indexAfterYearSearch(year),books.length);
     }
 
+    /**
+     * Search for an index of the element in array
+     * @param year is the number which index should be searched in the array
+     * @return the index of the element which is searched if the array has it or the index of the first element
+     * which is larger than element which is searched
+     */
     private int indexAfterYearSearch(int year){
         int left = 0;
         int right = books.length;
-        int i=0;
+        int currentIndex=0;
         while(true){
             if(right<=left){
-                if(books[i].getYear()>year){
-                    return i;
+                if(books[currentIndex].getYear()>year){
+                    return currentIndex;
                 }
                 else {
-                    return i++;
+                    while(currentIndex<books.length && books[currentIndex].getYear()<year){
+                        currentIndex++;
+                    }
+                    return currentIndex;
                 }
             }
-            i=left + (right - left)/2;
-            if (books[i].getYear() == year) {
-                while(books[i].getYear()== year){
-                    i++;
+            currentIndex=left + (right - left)/2;
+            if (books[currentIndex].getYear() == year) {
+                while(books[currentIndex].getYear()== year){
+                    currentIndex++;
                 }
-                return i;
+                return currentIndex;
             }
-            if (books[i].getYear()>year) {
-                right = i;
+            if (books[currentIndex].getYear()>year) {
+                right = currentIndex;
             }
             else{
-                left = i+1;
+                left = currentIndex+1;
             }
         }
     }

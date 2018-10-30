@@ -1,6 +1,6 @@
-package epam.java;
+package main.java.epam;
 
-import epam.java.view.BooksView;
+import main.java.epam.view.BooksView;
 
 import java.util.Scanner;
 

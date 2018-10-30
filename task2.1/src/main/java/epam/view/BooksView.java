@@ -1,6 +1,6 @@
-package epam.java.view;
+package main.java.epam.view;
 
-import epam.java.model.entity.Book;
+import main.java.epam.model.entity.Book;
 
 public class BooksView {
     public static final String CHOICE = "What do you whant to do with a list of books?" +
