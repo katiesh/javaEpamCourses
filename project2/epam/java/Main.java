@@ -4,9 +4,15 @@ import epam.java.controller.Controller;
 import epam.java.model.Model;
 import epam.java.view.View;
 
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
-       new Controller().run();
+       try {
+           new Controller().run();
+       }catch (IOException e){
+           System.out.println(e.getMessage());
+       }
     }
 }

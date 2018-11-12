@@ -12,8 +12,10 @@ public class View {
         System.out.println(message);
     }
 
-    public void printSetInFile(String fileAdress, Set <Word> words){
-        try (FileWriter writer =new FileWriter(fileAdress)){
+    public void printSetInFile(String fileAdress, Set <Word> words) throws IOException {
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(fileAdress);
             for (Word word: words) {
                 writer.write(word.getWord());
                 writer.append(' ');
@@ -21,6 +23,10 @@ public class View {
             }
         } catch (IOException e){
         System.out.println(e.getMessage());
+        } finally {
+            if(writer != null){
+                writer.close();
+            }
         }
     }
 }
