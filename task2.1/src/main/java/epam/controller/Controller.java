@@ -11,7 +11,7 @@ public class Controller {
     private BooksView view = new BooksView();
 
     public void run(){
-        model.setBooks(DataSource.getBooks());
+        model.setBooks(DataSource.getBooksFromFile("books.txt"));
         makeChoice();
 
     }
@@ -23,6 +23,7 @@ public class Controller {
         }
         else{
             view.printBooks("\nAuthor - "+author,result);
+            view.printResultInFile(author + ".txt", result);
         }
     }
 
@@ -33,6 +34,7 @@ public class Controller {
         }
         else{
             view.printBooks("\nAuthor - "+publisher, result);
+            view.printResultInFile(publisher + ".txt", result);
         }
     }
 
@@ -42,6 +44,7 @@ public class Controller {
             switch (InputUtility.inputIntValueWithScanner(view, view.CHOICE)){
                 case 1: {
                     view.printBooks("All books", model.getBooks());
+                    view.printResultInFile("AllBooks.txt", model.getBooks());
                     break;
                 }
                 case 2:{
@@ -49,14 +52,17 @@ public class Controller {
                     break;
                 }
                 case 3:{
+                    int year = InputUtility.inputIntValueWithScanner(view,view.ENTER_YEAR);
                     view.printBooks("Books after selected year:",
-                            model.getAfterYear(InputUtility.inputIntValueWithScanner(view,view.ENTER_YEAR)));
+                            model.getAfterYear(year));
+                    view.printResultInFile( "BooksAfterYear" + year + ".txt", model.getAfterYear(year));
                     break;
 
                 }
                 case 4:{
                     model.sortByPublisher();
                     view.printBooks("Books ordered by publisher", model.getBooks());
+                    view.printResultInFile( "BooksOrderedByPublisher.txt", model.getBooks());
                     break;
                 }
 

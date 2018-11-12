@@ -2,6 +2,9 @@ package main.java.epam.view;
 
 import main.java.epam.model.entity.Book;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class BooksView {
     public static final String CHOICE = "What do you whant to do with a list of books?" +
             "\n1.Print it.\n2.Print books written by selected author.\n3.Print books published after selected year.\n" +
@@ -21,4 +24,14 @@ public class BooksView {
         System.out.println(message);
     }
 
+    public void printResultInFile(String fileAdress, Book[] books){
+        try(FileWriter writer = new FileWriter(fileAdress)){
+            for (Book book:books) {
+                writer.write(book.toString());
+                writer.flush();
+            }
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
