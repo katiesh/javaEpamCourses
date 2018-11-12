@@ -13,7 +13,7 @@ public class Text {
     private List<Sentence> sentences;
     private String fileAddress;
 
-    public Text(String fileAddress) throws IOException {
+    public Text(String fileAddress) {
         this.fileAddress = fileAddress;
         setAllText();
         setSentences();
@@ -34,10 +34,8 @@ public class Text {
         return allText;
     }
 
-    public void setAllText() throws IOException {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(fileAddress));
+    public void setAllText() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileAddress))){
             StringBuilder wholeTextBuilder = new StringBuilder();
             while (reader.ready()) {
                 String buffer = reader.readLine();
@@ -48,10 +46,6 @@ public class Text {
             allText = wholeTextBuilder.toString();
         }catch (IOException e){
             System.out.println(e.getMessage());
-        }finally {
-            if(reader!=null){
-                reader.close();
-            }
         }
     }
 
