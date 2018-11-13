@@ -43,7 +43,6 @@ public class Books {
 
     public Book[] getAfterYear(int year){
         Arrays.sort(books,new main.java.epam.model.BooksYearComparator());
-        System.out.println(indexAfterYearSearch(year));
         return Arrays.copyOfRange(books,indexAfterYearSearch(year),books.length);
     }
 
